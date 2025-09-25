@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FlutterAdvanceBlocCourseApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FlutterAdvanceBlocCourseApp extends StatelessWidget {
+  const FlutterAdvanceBlocCourseApp({super.key});
 
   // This widget is the root of your application.
   @override
