@@ -7,6 +7,10 @@ import '../../features/onboarding/onboarding_screen.dart';
 class AppRouter {
 
   Route generateRoute(RouteSettings settings) {
+
+    // this arrguments to be passed in any screen like this {arrguments as ClassName}
+    final arrguments = settings.arguments;
+
     switch (settings.name) {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
