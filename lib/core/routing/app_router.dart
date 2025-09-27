@@ -28,7 +28,3 @@ class AppRouter {
   }
 }
 
-/*
-fake data for testing
-*/
-
