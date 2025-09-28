@@ -3,11 +3,10 @@ import 'package:flutter_advance_bloc_course/core/routing/routes.dart';
 
 import '../../features/login/ui/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
+import '../../features/sign_up/sign_up_screen.dart';
 
 class AppRouter {
-
   Route generateRoute(RouteSettings settings) {
-
     // this arrguments to be passed in any screen like this {arrguments as ClassName}
     final arrguments = settings.arguments;
 
@@ -16,15 +15,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+      case Routes.signUpScreen:
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
       default:
-        return MaterialPageRoute(builder: (_) =>
-            Scaffold(
-              body: Center(
-                child: Text('No route defined for ${settings.name}'),
-              ),
-            ),
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(child: Text('No route defined for ${settings.name}')),
+          ),
         );
     }
   }
 }
-
