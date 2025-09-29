@@ -5,14 +5,14 @@ import 'package:flutter_advance_bloc_course/core/theming/styles.dart';
 
 class PasswordValidations extends StatelessWidget {
   final bool hasUppercase;
-  final bool hasNumbers;
+  final bool hasNumber;
   final bool hasLowercase;
   final bool hasSpecialCharacters;
   final bool hasMinLength;
   const PasswordValidations({
     super.key,
     required this.hasUppercase,
-    required this.hasNumbers,
+    required this.hasNumber,
     required this.hasLowercase,
     required this.hasSpecialCharacters,
     required this.hasMinLength,
@@ -26,7 +26,7 @@ class PasswordValidations extends StatelessWidget {
         verticalSpace(2),
         buildValidationRow('At least 1 lowercase letter', hasLowercase),
         verticalSpace(2),
-        buildValidationRow('At least 1 number', hasNumbers),
+        buildValidationRow('At least 1 number', hasNumber),
         verticalSpace(2),
         buildValidationRow(
           'At least 1 special character',
