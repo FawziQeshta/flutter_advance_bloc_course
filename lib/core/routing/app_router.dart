@@ -3,11 +3,12 @@ import 'package:flutter_advance_bloc_course/core/di/dependancy_injection.dart';
 import 'package:flutter_advance_bloc_course/core/routing/routes.dart';
 import 'package:flutter_advance_bloc_course/features/home/ui/home_screen.dart';
 import 'package:flutter_advance_bloc_course/features/login/logic/cubit/login_cubit.dart';
+import 'package:flutter_advance_bloc_course/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/login/ui/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
-import '../../features/sign_up/sign_up_screen.dart';
+import '../../features/sign_up/ui/sign_up_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -25,7 +26,10 @@ class AppRouter {
           ),
         );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => SignUpScreen());
+        return MaterialPageRoute(builder: (_) => BlocProvider(
+  create: (context) => getIt<SignUpCubit>(),
+  child: SignUpScreen(),
+),);
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => HomeScreen());
       default:

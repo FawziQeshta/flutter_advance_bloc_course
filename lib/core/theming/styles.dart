@@ -93,4 +93,10 @@ class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
     color: AppColors.mainBlue,
   );
+
+  static TextStyle font16WhiteSemiBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColors.white,
+  );
 }

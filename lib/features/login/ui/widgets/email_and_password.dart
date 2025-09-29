@@ -105,7 +105,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           verticalSpace(24),
           PasswordValidations(
             hasUppercase: hasUppercase,
-            hasNumbers: hasNumbers,
+            hasNumber: hasNumbers,
             hasLowercase: hasLowercase,
             hasSpecialCharacters: hasSpecialCharacters,
             hasMinLength: hasMinLength,
