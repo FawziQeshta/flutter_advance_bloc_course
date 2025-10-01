@@ -10,8 +10,6 @@ import 'package:flutter_advance_bloc_course/core/routing/app_router.dart';
 import 'package:flutter_advance_bloc_course/doc_app.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_advance_bloc_course/main.dart';
-
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
