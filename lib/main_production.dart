@@ -18,4 +18,4 @@ void main() async {
 
   do not forget to update the version in pubspec.yaml before running the command
 */
-/**- new update **/
+/**- --no-tree-shake-icons **/
