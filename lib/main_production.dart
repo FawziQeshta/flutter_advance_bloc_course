@@ -11,3 +11,10 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   runApp(DocApp(appRouter: AppRouter()));
 }
+/*
+ To upload apk from the app to Firebase App Distribution, run the following command in the terminal:
+  cd android
+  fastalane firebase_distribution
+
+  do not forget to update the version in pubspec.yaml before running the command
+*/
