@@ -25,10 +25,6 @@ jobs:
         channel: stable
         cache: true
     
-    - name: Install Android NDK
-      run: |
-        sdkmanager --install "ndk;29.0.14033849"
-    
     - name: Make gradlew executable
       run: chmod +x ./android/gradlew
         
