@@ -19,6 +19,19 @@ jobs:
         distribution: 'zulu'
         cache: 'gradle'
     
+    - name: 📦 Setup Android SDK
+      uses: android-actions/setup-android@v3
+      
+    - name: 📜 Accept Android SDK Licenses
+      run: yes | sdkmanager --licenses || true
+
+    - name: 📜 Accept Android SDK Licenses
+      run: yes | sdkmanager --licenses || true
+      
+    - name: 📦 Install NDK (if needed)
+      run: |
+        sdkmanager --install "ndk;29.0.14033849" || true
+
     - name: Install Flutter
       uses: subosito/flutter-action@v2
       with:
