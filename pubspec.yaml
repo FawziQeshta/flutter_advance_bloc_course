@@ -61,6 +61,10 @@ dependencies:
   # for adapting screen and font size
   flutter_screenutil: ^5.9.3
   firebase_core: ^4.1.1
+  # loading animations
+  shimmer: ^3.0.0
+  # image from network with caching
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
