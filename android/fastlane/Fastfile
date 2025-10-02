@@ -5,9 +5,11 @@ platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
     sh "flutter clean"
-    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+    sh "flutter doctor -v"  
+    sh "flutter pub get"    
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons --verbose" 
     firebase_app_distribution(
-      app: "1:245672818453:android:31ee7ba3c09b42c3205b1c",
+      app: ENV["FIREBASE_APP_ID"],
       testers: "fawziqeshta@gmail.com",
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       apk_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
