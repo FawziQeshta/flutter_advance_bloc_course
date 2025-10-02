@@ -4,10 +4,13 @@ default_platform(:android)
 platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
-    sh "flutter clean"
-    sh "flutter doctor -v"  
-    sh "flutter pub get"    
-    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons --verbose" 
+    # Navigate to project root for Flutter commands
+    Dir.chdir("..") do
+      sh "flutter clean"
+      sh "flutter doctor -v"
+      sh "flutter pub get"
+      sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons --verbose"
+    end
     firebase_app_distribution(
       app: ENV["FIREBASE_APP_ID"],
       testers: "fawziqeshta@gmail.com",
