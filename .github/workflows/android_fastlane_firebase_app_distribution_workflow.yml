@@ -24,9 +24,6 @@ jobs:
       with:
         channel: stable
         cache: true
-    
-    - name: Make gradlew executable
-      run: chmod +x ./android/gradlew
         
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
