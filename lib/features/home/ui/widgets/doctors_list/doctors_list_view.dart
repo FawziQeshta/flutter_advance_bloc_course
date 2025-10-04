@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advance_bloc_course/features/home/ui/widgets/doctors_list/doctors_list_view_item.dart';
 
+import '../../../data/models/specializations_response_model.dart';
+
 class DoctorsListView extends StatelessWidget {
-  // final List<Doctors?>? doctorsList;
-  // const DoctorsListView({super.key, this.doctorsList});
-  const DoctorsListView({super.key});
+  final List<Doctors?>? doctorsList;
+  const DoctorsListView({super.key, this.doctorsList});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: doctorsList?.length,
         itemBuilder: (context, index) {
-          // return DoctorsListViewItem(doctorsModel: doctorsList?[index]);
-          return DoctorsListViewItem();
+          return DoctorsListViewItem(doctorsModel: doctorsList?[index]);
         },
       ),
     );

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../../logic/home_cubit.dart';
 import 'speciality_list_view_item.dart';
-
-// import '../../../data/models/specializations_response_model.dart';
-// import 'speciality_list_view_item.dart';
+import '../../../data/models/specializations_response_model.dart';
 
 class SpecialityListView extends StatefulWidget {
-  // final List<SpecializationsData?> specializationDataList;
-  // const SpecialityListView({super.key, required this.specializationDataList});
-  const SpecialityListView({super.key});
+  final List<SpecializationsData?> specializationDataList;
+  const SpecialityListView({super.key, required this.specializationDataList});
 
   @override
   State<SpecialityListView> createState() => _SpecialityListViewState();
@@ -24,19 +22,19 @@ class _SpecialityListViewState extends State<SpecialityListView> {
       height: 100.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: widget.specializationDataList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              // setState(() {
-              //   selectedSpecializationIndex = index;
-              // });
-              // context.read<HomeCubit>().getDoctorsList(
-              //       specializationId: widget.specializationDataList[index]?.id,
-              //     );
+              setState(() {
+                selectedSpecializationIndex = index;
+              });
+              context.read<HomeCubit>().getDoctorsList(
+                specializationId: widget.specializationDataList[index]?.id,
+              );
             },
             child: SpecialityListViewItem(
-              // specializationsData: widget.specializationDataList[index],
+              specializationsData: widget.specializationDataList[index],
               itemIndex: index,
               selectedIndex: selectedSpecializationIndex,
             ),
