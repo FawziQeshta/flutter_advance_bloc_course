@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advance_bloc_course/core/di/dependancy_injection.dart';
 import 'package:flutter_advance_bloc_course/core/routing/routes.dart';
+import 'package:flutter_advance_bloc_course/features/home/logic/home_cubit.dart';
 import 'package:flutter_advance_bloc_course/features/home/ui/home_screen.dart';
 import 'package:flutter_advance_bloc_course/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter_advance_bloc_course/features/sign_up/logic/cubit/sign_up_cubit.dart';
@@ -26,12 +27,19 @@ class AppRouter {
           ),
         );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => BlocProvider(
-  create: (context) => getIt<SignUpCubit>(),
-  child: SignUpScreen(),
-),);
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: SignUpScreen(),
+          ),
+        );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getSpecializations(),
+            child: HomeScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

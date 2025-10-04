@@ -4,14 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/theming/styles.dart';
+import '../../../data/models/specializations_response_model.dart';
 
 class SpecialityListViewItem extends StatelessWidget {
-  // final SpecializationsData? specializationsData;
+  final SpecializationsData? specializationsData;
   final int itemIndex;
   final int selectedIndex;
   const SpecialityListViewItem({
     super.key,
-    // this.specializationsData,
+    this.specializationsData,
     required this.itemIndex,
     required this.selectedIndex,
   });
@@ -49,8 +50,7 @@ class SpecialityListViewItem extends StatelessWidget {
                 ),
           verticalSpace(8),
           Text(
-            // specializationsData?.name ?? 'Specialization',
-            'Specialization',
+            specializationsData?.name ?? 'Specialization',
             style: itemIndex == selectedIndex
                 ? TextStyles.font14DarkBlueBold
                 : TextStyles.font12DarkBlueRegular,
