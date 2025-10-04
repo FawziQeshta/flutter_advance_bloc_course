@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advance_bloc_course/core/helpers/extensions.dart';
+import 'package:flutter_advance_bloc_course/core/helpers/shared_pref_helper.dart';
+import 'package:flutter_advance_bloc_course/core/helpers/shared_pref_keys.dart';
 import 'package:flutter_advance_bloc_course/core/routing/routes.dart';
 import 'package:flutter_advance_bloc_course/core/theming/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,8 +14,14 @@ class GetStartedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        context.pushNamed(Routes.loginScreen);
+      onPressed: () async {
+        await SharedPrefHelper.setData(
+          SharedPrefKeys.showedOnBoardingScreen,
+          true,
+        );
+        if (context.mounted) {
+          context.pushNamed(Routes.loginScreen);
+        }
       },
       style: TextButton.styleFrom(
         backgroundColor: AppColors.mainBlue,
@@ -23,7 +31,7 @@ class GetStartedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.r),
         ),
       ),
-      child: Text('Get Started', style: TextStyles.font18White600Weight),
+      child: Text('Get Started', style: TextStyles.font18WhiteSemiBold),
     );
   }
 }
