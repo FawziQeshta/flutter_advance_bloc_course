@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advance_bloc_course/core/helpers/extensions.dart';
+import 'package:flutter_advance_bloc_course/core/networking/api_error_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/routing/routes.dart';
@@ -15,7 +16,7 @@ class SignupBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SignUpCubit, SignUpState>(
       listenWhen: (previous, current) =>
-      current is SignupLoading ||
+          current is SignupLoading ||
           current is SignupSuccess ||
           current is SignupError,
       listener: (context, state) {
@@ -24,9 +25,7 @@ class SignupBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.mainBlue,
-                ),
+                child: CircularProgressIndicator(color: AppColors.mainBlue),
               ),
             );
           },
@@ -59,7 +58,9 @@ class SignupBlocListener extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue, disabledForegroundColor: Colors.grey.withOpacity(0.38),
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () {
                 context.pushNamed(Routes.loginScreen);
@@ -72,18 +73,14 @@ class SignupBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
+        icon: const Icon(Icons.error, color: Colors.red, size: 32),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
@@ -91,10 +88,7 @@ class SignupBlocListener extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14BlueSemiBold,
-            ),
+            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),

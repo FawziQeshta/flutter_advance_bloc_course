@@ -32,11 +32,11 @@ class DocApp extends StatelessWidget {
 
   String getInitialRoute() {
     if (Constants.isShowedOnBoarding) {
-      if (Constants.isLoggedInUser) {
-        return Routes.homeScreen;
-      } else {
-        return Routes.loginScreen;
-      }
+      // if (Constants.isLoggedInUser) {
+      //   return Routes.homeScreen;
+      // } else {
+      return Routes.loginScreen;
+      // }
     }
     return Routes.onBoardingScreen;
   }

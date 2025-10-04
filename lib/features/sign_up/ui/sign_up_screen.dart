@@ -29,10 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Create Account',
-                  style: TextStyles.font24BlueBold,
-                ),
+                Text('Create Account', style: TextStyles.font24BlueBold),
                 verticalSpace(8),
                 Text(
                   'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
@@ -66,8 +63,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void validateThenDoSignup(BuildContext context) {
-    if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
-      context.read<SignUpCubit>().emitSignupStates();
-    }
+    // if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+    context.read<SignUpCubit>().emitSignupStates();
+    // }
   }
 }
