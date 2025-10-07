@@ -30,7 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
         getDoctorsList(specializationId: specializationsList?.first?.id);
       },
       failure: (error) {
-        emit(HomeState.specializationsError(error.apiErrorModel));
+        emit(HomeState.specializationsError(error));
       },
     );
   }

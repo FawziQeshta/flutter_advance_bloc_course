@@ -6,17 +6,18 @@ import 'package:flutter_advance_bloc_course/features/login/data/models/login_res
 import '../models/login_request_body.dart';
 
 class LoginRepo {
-
   final ApiService _apiService;
 
   LoginRepo(this._apiService);
 
-  Future<ApiResult<LoginResponse>> login(LoginRequestBody loginRequestBody) async {
+  Future<ApiResult<LoginResponse>> login(
+    LoginRequestBody loginRequestBody,
+  ) async {
     try {
       final response = await _apiService.login(loginRequestBody);
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

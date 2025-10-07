@@ -20,12 +20,12 @@ class SignUpCubit extends Cubit<SignUpState> {
     emit(const SignUpState.signupLoading());
 
     final s = SignUpRequestBody(
-        name: nameController.text,
-        email: emailController.text,
-        phone: phoneController.text,
-        password: passwordController.text,
-        passwordConfirmation: confirmPasswordController.text,
-        gender: "0"
+      name: nameController.text,
+      email: emailController.text,
+      phone: phoneController.text,
+      password: passwordController.text,
+      passwordConfirmation: confirmPasswordController.text,
+      gender: "0",
     );
 
     final response = await _signUpRepo.signUp(s);
@@ -34,8 +34,8 @@ class SignUpCubit extends Cubit<SignUpState> {
       success: (signupResponse) {
         emit(SignUpState.signupSuccess(signupResponse));
       },
-      failure: (error) {
-        emit(SignUpState.signupError(error: error.apiErrorModel.message));
+      failure: (apiErrorModel) {
+        emit(SignUpState.signupError(apiErrorModel));
       },
     );
   }

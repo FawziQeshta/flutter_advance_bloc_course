@@ -1,9 +1,11 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advance_bloc_course/core/di/dependancy_injection.dart';
 import 'package:flutter_advance_bloc_course/core/routing/routes.dart';
 import 'package:flutter_advance_bloc_course/features/home/logic/home_cubit.dart';
 import 'package:flutter_advance_bloc_course/features/home/ui/home_screen.dart';
 import 'package:flutter_advance_bloc_course/features/login/logic/cubit/login_cubit.dart';
+import 'package:flutter_advance_bloc_course/features/notifications_screen.dart';
 import 'package:flutter_advance_bloc_course/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,6 +41,12 @@ class AppRouter {
             create: (context) => HomeCubit(getIt())..getSpecializations(),
             child: HomeScreen(),
           ),
+        );
+      case Routes.notificationsScreen:
+        return MaterialPageRoute(
+          builder: (_) =>
+              NotificationsScreen(remoteMessage: arrguments as RemoteMessage),
+          // builder: (_) => NotificationsScreen(),
         );
       default:
         return MaterialPageRoute(
