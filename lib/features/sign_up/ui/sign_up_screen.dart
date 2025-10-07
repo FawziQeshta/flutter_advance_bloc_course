@@ -63,8 +63,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void validateThenDoSignup(BuildContext context) {
-    // if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
-    context.read<SignUpCubit>().emitSignupStates();
-    // }
+    if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+      context.read<SignUpCubit>().emitSignupStates();
+    }
   }
 }
